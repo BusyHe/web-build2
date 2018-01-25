@@ -5,6 +5,7 @@
 
 <template>
     <div class="main">
+        <el-button type="text">文字按钮</el-button>
     </div>
 </template>
 <script>
