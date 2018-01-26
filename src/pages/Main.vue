@@ -9,6 +9,8 @@
     </div>
 </template>
 <script>
+    import {getResult} from '../api/main';
+
     export default {
         name: 'Main',
         data() {
@@ -17,10 +19,16 @@
         props: [''],
         components: {},
         created() {
+            this.initData()
         },
         mounted() {
         },
-        methods: {}
+        methods: {
+            initData() {
+                getResult('12345678').then(res => {
+                })
+            }
+        }
     }
 </script>
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus">

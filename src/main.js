@@ -2,9 +2,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import './common/stylus/index.styl'
+import eventCenter from './common/js/eventCenter'
 import {
     // Pagination,
-    // Dialog,
+    Dialog,
     // Autocomplete,
     // Dropdown,
     // DropdownMenu,
@@ -24,7 +25,7 @@ import {
     // Select,
     // Option,
     // OptionGroup,
-    Button
+    Button,
     // ButtonGroup,
     // Table,
     // TableColumn,
@@ -41,7 +42,7 @@ import {
     // TabPane,
     // Tag,
     // Tree,
-    // Alert,
+    Alert,
     // Slider,
     // Icon,
     // Row,
@@ -61,14 +62,14 @@ import {
     // CollapseItem,
     // Cascader,
     // ColorPicker,
-    // Loading,
-    // MessageBox,
-    // Message,
-    // Notification
+    Loading,
+    MessageBox,
+    Message,
+    Notification
 } from 'element-ui'
 
 // Vue.use(Pagination)
-// Vue.use(Dialog)
+Vue.use(Dialog);
 // Vue.use(Autocomplete)
 // Vue.use(Dropdown)
 // Vue.use(DropdownMenu)
@@ -88,7 +89,7 @@ import {
 // Vue.use(Select)
 // Vue.use(Option)
 // Vue.use(OptionGroup)
-Vue.use(Button)
+Vue.use(Button);
 // Vue.use(ButtonGroup)
 // Vue.use(Table)
 // Vue.use(TableColumn)
@@ -105,7 +106,7 @@ Vue.use(Button)
 // Vue.use(TabPane)
 // Vue.use(Tag)
 // Vue.use(Tree)
-// Vue.use(Alert)
+Vue.use(Alert);
 // Vue.use(Slider)
 // Vue.use(Icon)
 // Vue.use(Row)
@@ -126,15 +127,22 @@ Vue.use(Button)
 // Vue.use(Cascader)
 // Vue.use(ColorPicker)
 //
-// Vue.use(Loading.directive)
-//
-// Vue.prototype.$loading = Loading.service
-// Vue.prototype.$msgbox = MessageBox
-// Vue.prototype.$alert = MessageBox.alert
-// Vue.prototype.$confirm = MessageBox.confirm
-// Vue.prototype.$prompt = MessageBox.prompt
-// Vue.prototype.$notify = Notification
-// Vue.prototype.$message = Message
+Vue.use(Loading.directive);
+
+Vue.prototype.$loading = Loading.service;
+Vue.prototype.$msgbox = MessageBox;
+Vue.prototype.$alert = MessageBox.alert;
+Vue.prototype.$confirm = MessageBox.confirm;
+Vue.prototype.$prompt = MessageBox.prompt;
+Vue.prototype.$notify = Notification;
+Vue.prototype.$message = Message;
+
+eventCenter.on('httpError', (data) => {
+    Message({
+        message: data.val,
+        type: data.type
+    })
+});
 
 Vue.config.productionTip = false;
 
