@@ -17,6 +17,6 @@ exports.logger = async (ctx, next) => {
     await next();
     const ms = new Date() - start;
     console.log(chalk.green(`[ ${moment().format('YYYY-MM-DD HH:mm:ss')} ] ${ctx.response.status} ${ctx.method} ${ctx.url} - ` + chalk.yellow(`${ms}ms`)));
-    console.log(chalk.green(`req.body: `), ctx.request.body);
-    console.log(chalk.green(`res.body: `), ctx.response.body)
+    console.log(chalk.green(`  req.body: `), ctx.request.body);
+    console.log(chalk.green(`  res.body: `), ctx.response.body)
 };

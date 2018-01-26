@@ -5,11 +5,8 @@
 
 const Router = require('koa-router');
 const router = new Router();
+const mainController = require('../controllers/main');
 
-router.post('/main', (ctx) => {
-    ctx.body = {
-        status: 0
-    }
-});
+router.post('/main', mainController);
 
 module.exports = router;

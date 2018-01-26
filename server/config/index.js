@@ -5,10 +5,27 @@
 const commander = require('../common/commander'); // 命令行工具
 
 const config = {
-    port: commander.port || 8765,
-    mongodb_url: '',
-    redis_url: '',
-    redis_port: ''
+    mode: commander.build ? 'build' : 'dev',
+    dev: {
+        port: commander.port || 8765,
+        mongodb: {
+            open: false,
+            url: 'mongodb://localhost:27017/web_build_test'
+        },
+        server: {},
+        redis_url: '',
+        redis_port: ''
+    },
+    build: {
+        port: commander.port || 8765,
+        mongodb: {
+            open: false,
+            url: 'mongodb://localhost:27017/web_build_test'
+        },
+        server: {},
+        redis_url: '',
+        redis_port: ''
+    }
 };
 
 module.exports = config;
