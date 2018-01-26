@@ -3,10 +3,12 @@
  * Email: 525118368@qq.com
  */
 const commander = require('../common/commander'); // 命令行工具
+const mode = commander.build ? 'build' : 'dev';
 
 const config = {
-    mode: commander.build ? 'build' : 'dev',
     dev: {
+        name: '开发模式',
+        type: mode,
         port: commander.port || 8765,
         mongodb: {
             open: false,
@@ -17,6 +19,8 @@ const config = {
         redis_port: ''
     },
     build: {
+        name: '生产模式',
+        type: mode,
         port: commander.port || 8765,
         mongodb: {
             open: false,
@@ -28,4 +32,4 @@ const config = {
     }
 };
 
-module.exports = config;
+module.exports = config[mode];

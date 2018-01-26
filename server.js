@@ -31,7 +31,7 @@ app.on('error', function (err) {
     console.log(chalk.red(err));
 });
 
-app.listen(config[config.mode].port);
-console.log(chalk.cyan(`\nserver start: `) + chalk.green(`localhost:${config[config.mode].port}`));
-console.log(chalk.cyan(`当前服务环境: `) + chalk.green(`${config.mode === 'dev' ? '开发模式' : '生产模式'}\n`));
+app.listen(config.port);
+console.log(chalk.cyan(`\nserver start: `) + chalk.green(`localhost:${config.port}`));
+console.log(chalk.cyan(`当前服务环境: `) + chalk.green(`${config.name}\n`));
 
