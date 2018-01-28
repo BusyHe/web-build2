@@ -11,8 +11,7 @@ const config = {
         type: mode,
         port: commander.port || 8765,
         mongodb: {
-            open: false,
-            url: 'mongodb://localhost:27017/web_build_test'
+            mainUrl: 'mongodb://localhost:27017/test'
         },
         server: {},
         redis_url: '',
@@ -23,7 +22,6 @@ const config = {
         type: mode,
         port: commander.port || 8765,
         mongodb: {
-            open: false,
             url: 'mongodb://localhost:27017/web_build_test'
         },
         server: {},

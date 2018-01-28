@@ -3,10 +3,9 @@
  * Email: 525118368@qq.com
  */
 
-const Router = require('koa-router');
-const router = new Router();
-const mainController = require('../controllers/main');
+const router = require('koa-router')();
+const main = require('./main');
 
-router.post('/main', mainController);
+router.use('/main', main.routes(), main.allowedMethods());
 
 module.exports = router;
