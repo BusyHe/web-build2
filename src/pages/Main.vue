@@ -5,7 +5,7 @@
 
 <template>
     <div class="main">
-        <el-button type="text">文字按钮</el-button>
+        <h1>vue2 + Element-ui + Koa2 网站快速生成框架</h1>
     </div>
 </template>
 <script>
@@ -32,4 +32,14 @@
     }
 </script>
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
+    @import "~common/stylus/variable.styl"
+    h1
+        font-size 28px
+        color $color-text
+        text-align center
+        margin 40px auto
+
+    ul
+        width 500px
+        margin 0 auto
 </style>
