@@ -23,9 +23,12 @@ vue2 + koa2 搭建前端PC页面模板
 
 Element-ui 主题配置
 
+```
+npm install element-theme -g
+```
+
 修改 element-variables.css，执行以下命令编辑css，生成theme文件夹`引入方式为按需引入`
 
-进入 node_modules/.bin/et
 ```
 et
 ```
