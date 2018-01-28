@@ -15,11 +15,20 @@ vue2 + koa2 搭建前端PC页面模板
 ### 后端
 
 - 框架：koa2
-- 后端路由：koa-router 
+- 后端路由：koa-router
 - mongodb：mongoose
 - 命令行工具：commander
 
 ## 启动服务
+
+Element-ui 主题配置
+
+修改 element-variables.css，执行以下命令编辑css，生成theme文件夹`引入方式为按需引入`
+
+进入 node_modules/.bin/et
+```
+et
+```
 
 进入根目录执行以下命令安装所需模块
 
@@ -37,16 +46,16 @@ node server --port=**** --build #生产模式
 ### 前端服务
 
 - 开发环境
-    
+
     ```bash
     npm run dev
     ```
-    
+
     如后端无数据，可利用webpack的dev服务测试
-    
+
     ```js
     # /build/webpack.dev.conf.js
-    
+
     devServer: {
         before(app) {
             app.post('/api/main', function (req, res) {
@@ -54,17 +63,17 @@ node server --port=**** --build #生产模式
             })
         }
     ```
-    
+
 - 生产模式
-    
+
     生产模式，会利用webpack打包生成/dist最终代码
 
     ```bash
     npm run build
-    ```    
+    ```
 
 
-    
-    
+
+
 
 
