@@ -25,8 +25,7 @@
         },
         methods: {
             initData() {
-                getResult('12345678').then(res => {
-                })
+                getResult('123').then(res => {})
             }
         }
     }
@@ -34,10 +33,10 @@
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
     @import "~common/stylus/variable.styl"
     h1
-        font-size 28px
+        font-size 32px
         color $color-text
         text-align center
-        margin 40px auto
+        margin 80px auto
 
     ul
         width 500px

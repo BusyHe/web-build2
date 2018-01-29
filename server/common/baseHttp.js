@@ -1,10 +1,10 @@
 /**
- * Created by busyhe on 2018/1/26 下午11:25.
+ * Created by busyhe on 2018/1/29 上午9:53.
  * Email: 525118368@qq.com
  */
-import axios from 'axios'
-import qs from 'qs'
-import eventCenter from './eventCenter';
+const axios = require('axios');
+const qs = require('qs');
+const log = require('./logColor');
 
 const CancelToken = axios.CancelToken;
 let cancel = {};
@@ -26,9 +26,6 @@ axios.interceptors.request.use(config => {
 
 // 响应拦截器即异常处理
 axios.interceptors.response.use(response => {
-    if (response.data.status !== 0) {
-        eventCenter.trigger('httpError', {val: response.data.message, type: 'warning'});
-    }
     return response
 }, err => {
     if (err && err.response) {
@@ -75,7 +72,7 @@ axios.interceptors.response.use(response => {
     } else {
         err.message = '连接到服务器失败'
     }
-    eventCenter.trigger('httpError', {val: err.message, type: 'error'});
+    log.danger(err.message);
     return Promise.resolve(err.response)
 });
 
@@ -85,7 +82,7 @@ axios.defaults.baseURL = '/api';
 // };
 axios.defaults.timeout = 10000;
 
-export default {
+module.exports = {
     // get请求
     get(url, param) {
         return new Promise((resolve, reject) => {
@@ -107,7 +104,7 @@ export default {
             axios({
                 method: 'post',
                 url,
-                data: qs.stringify(param),
+                data: param,
                 cancelToken: new CancelToken(c => {
                     cancel = c
                 })
@@ -116,4 +113,4 @@ export default {
             })
         })
     }
-}
+};

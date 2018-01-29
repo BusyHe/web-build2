@@ -4,7 +4,7 @@
  */
 const Koa = require('koa');
 const Router = require('koa-router');
-const chalk = require('chalk'); // 控制台输出颜色自定义工具
+const log = require('./server/common/logColor'); // 控制台输出颜色自定义工具
 const bodyParser = require('koa-bodyparser');
 const koaStatic = require('koa-static');
 const compose = require('koa-compose');
@@ -29,11 +29,11 @@ router.use('/api', indexRouter.routes(), indexRouter.allowedMethods());
 app.use(indexRouter.routes(), indexRouter.allowedMethods());
 // 错误信息
 app.on('error', function (err) {
-    console.log(chalk.red('logging error ', err.message));
-    console.log(chalk.red(err));
+    log.customColor('red', 'logging error ', err.message);
+    log.customColor('red', err)
 });
 
 app.listen(config.port);
-console.log(chalk.cyan(`\n> server start: `) + chalk.green(`localhost:${config.port}`));
-console.log(chalk.cyan(`> 当前服务环境: `) + chalk.green(`${config.name}\n`));
+log.custom([{type: 'cyan', value: `\n> server start: `}, {type: 'green', value: `localhost:${config.port}`}]);
+log.custom([{type: 'cyan', value: `> 当前服务环境: `}, {type: 'green', value: `${config.name}\n`}]);
 
